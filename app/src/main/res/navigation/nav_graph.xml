@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.behmennnn.aspentravel.presentation.fragments.HomeFragment"
+        android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.behmennnn.aspentravel.presentation.fragments.FavoritesFragment"
+        android:label="FavoritesFragment" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.behmennnn.aspentravel.presentation.fragments.MessageFragment"
+        android:label="MessageFragment" />
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.behmennnn.aspentravel.presentation.fragments.ExploreFragment"
+        android:label="ExploreFragment" />
+</navigation>
