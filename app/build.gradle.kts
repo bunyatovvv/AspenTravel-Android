@@ -72,9 +72,9 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
 
     //Dagger
-    implementation ("com.google.dagger:hilt-android:2.48.1")
-    kapt ("com.google.dagger:hilt-compiler:2.48.1")
-    annotationProcessor ("com.google.dagger:hilt-compiler:2.48.1")
+    implementation ("com.google.dagger:hilt-android:2.51.1")
+    kapt ("com.google.dagger:hilt-compiler:2.51.1")
+    annotationProcessor ("com.google.dagger:hilt-compiler:2.51.1")
 
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
