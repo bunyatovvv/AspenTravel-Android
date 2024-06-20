@@ -9,5 +9,7 @@ interface ApiSource {
 
     suspend fun getAllRecommended() : Resource<List<LocationDTO>>
 
+    suspend fun getLocationById( locationId: Int) : Resource<LocationDTO>
+
 
 }

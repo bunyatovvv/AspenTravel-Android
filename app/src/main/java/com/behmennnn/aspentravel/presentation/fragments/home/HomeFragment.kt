@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseFragment
 import com.behmennnn.aspentravel.common.util.Status
 import com.behmennnn.aspentravel.databinding.FragmentHomeBinding
@@ -31,6 +33,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         binding.recommendedRv.layoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
 
         observeLiveData()
+
+        popularAdapter.setOnItemClickListener {
+            homeViewModel.getLocationById(it.id)
+            findNavController().navigate(R.id.action_homeFragment_to_locationDetailFragment)
+        }
     }
 
     private fun observeLiveData(){

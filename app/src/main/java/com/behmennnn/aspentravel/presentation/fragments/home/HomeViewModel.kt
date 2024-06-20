@@ -24,6 +24,9 @@ class HomeViewModel @Inject constructor(
     private val _recommendedData = MutableLiveData<Resource<List<LocationDTO>>>()
     val recommendedData: LiveData<Resource<List<LocationDTO>>> get()=_recommendedData
 
+    private val _locationDetail = MutableLiveData<Resource<LocationDTO>>()
+    val locationDetail: LiveData<Resource<LocationDTO>> get()=_locationDetail
+
     init {
         getAllLocations()
         getAllRecommended()
@@ -43,6 +46,15 @@ class HomeViewModel @Inject constructor(
             val response = apiRepo.getAllRecommended()
             response.collectLatest {
                 _recommendedData.postValue(it)
+            }
+        }
+    }
+
+    fun getLocationById(locationId: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = apiRepo.getLocationById(locationId)
+            response.collectLatest {
+                _locationDetail.postValue(it)
             }
         }
     }

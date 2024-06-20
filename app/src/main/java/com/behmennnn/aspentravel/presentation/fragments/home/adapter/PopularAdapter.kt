@@ -45,5 +45,16 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.PopularHolder>()  {
             locationRating.text = item.rating.toString()
             locationImage.setImageURL(item.image,holder.itemView.context)
         }
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                it(item)
+            }
+        }
+    }
+
+    private var onItemClickListener: ((LocationDTO) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (LocationDTO) -> Unit) {
+        onItemClickListener = listener
     }
 }
