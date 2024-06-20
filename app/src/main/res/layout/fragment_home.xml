@@ -32,7 +32,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nexa_book"
+                    android:fontFamily="@font/dmsans_regular"
                     android:text="Explore"
                     android:textColor="@color/black"
                     android:textSize="15sp">
@@ -42,7 +42,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/nexa_regular"
+                    android:fontFamily="@font/dmsans_regular"
                     android:text="Aspen"
                     android:textColor="@color/black"
                     android:textSize="30sp">
@@ -78,7 +78,7 @@
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/search_icon"
                     android:drawablePadding="8dp"
-                    android:fontFamily="@font/nexa_regular"
+                    android:fontFamily="@font/dmsans_regular"
                     android:textColorHint="#B8B8B8">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -107,7 +107,7 @@
                         android:layout_marginEnd="24dp"
                         android:background="@drawable/radio_selector_1"
                         android:button="@android:color/transparent"
-                        android:fontFamily="@font/nexa_regular"
+                        android:fontFamily="@font/dmsans_regular"
                         android:text="Location"
                         android:textAlignment="center"
                         android:textColor="@drawable/radio_text">
@@ -120,7 +120,7 @@
                         android:layout_marginEnd="24dp"
                         android:background="@drawable/radio_selector_1"
                         android:button="@android:color/transparent"
-                        android:fontFamily="@font/nexa_regular"
+                        android:fontFamily="@font/dmsans_regular"
                         android:text="Hotels"
                         android:textAlignment="center"
                         android:textColor="@drawable/radio_text">
@@ -134,7 +134,7 @@
                         android:layout_marginEnd="24dp"
                         android:background="@drawable/radio_selector_1"
                         android:button="@android:color/transparent"
-                        android:fontFamily="@font/nexa_regular"
+                        android:fontFamily="@font/dmsans_regular"
                         android:text="Food"
                         android:textAlignment="center"
                         android:textColor="@drawable/radio_text">
@@ -147,7 +147,7 @@
                         android:layout_marginEnd="24dp"
                         android:background="@drawable/radio_selector_1"
                         android:button="@android:color/transparent"
-                        android:fontFamily="@font/nexa_regular"
+                        android:fontFamily="@font/dmsans_regular"
 
                         android:text="Adventure"
                         android:textAlignment="center"
@@ -160,7 +160,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/radio_selector_1"
                         android:button="@android:color/transparent"
-                        android:fontFamily="@font/nexa_regular"
+                        android:fontFamily="@font/dmsans_regular"
                         android:text="Adventure"
                         android:textAlignment="center"
 
@@ -176,7 +176,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/nexa_bold"
+                android:fontFamily="@font/dmsans_semibold"
                 android:text="Popular"
                 android:textColor="@color/black"
                 android:textSize="24sp"
@@ -186,7 +186,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nexa_bold"
+                android:fontFamily="@font/dmsans_semibold"
                 android:text="See all"
                 android:textColor="@color/main_color"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
@@ -212,7 +212,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/nexa_bold"
+                android:fontFamily="@font/dmsans_semibold"
                 android:text="Recommended"
                 android:textColor="@color/black"
                 android:textSize="24sp"

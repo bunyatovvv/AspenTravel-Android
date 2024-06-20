@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Explore Aspen"
-                android:fontFamily="@font/nexa_bold"
+                android:fontFamily="@font/dmsans_semibold"
                 app:layout_constraintTop_toBottomOf="@id/imageCardView"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="15sp"
@@ -55,11 +55,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Italy, Rome"
-                android:fontFamily="@font/nexa_regular"
+                android:fontFamily="@font/dmsans_regular"
                 app:layout_constraintTop_toBottomOf="@id/locationTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 android:textSize="10sp"
-                android:textColor="@color/gray_50"
+                android:textColor="#B8B8B8"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp">
 

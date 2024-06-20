@@ -91,7 +91,7 @@
         android:id="@+id/locationTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nexa_bold"
+        android:fontFamily="@font/dmsans_semibold"
         android:textColor="@color/black"
         android:layout_marginTop="32dp"
         android:textSize="26sp"
@@ -120,7 +120,7 @@
             android:layout_marginStart="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nexa_regular"
+            android:fontFamily="@font/dmsans_regular"
             android:textColor="#606060"
             android:textSize="14sp">
 
@@ -132,7 +132,7 @@
         android:id="@+id/showMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nexa_bold"
+        android:fontFamily="@font/dmsans_semibold"
         android:text="Show map"
         android:textColor="@color/main_color"
         app:layout_constraintBottom_toBottomOf="@+id/titleLayout"
@@ -146,7 +146,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#3A544F"
-        android:fontFamily="@font/nexa_book"
+        android:fontFamily="@font/dmsans_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleLayout">
@@ -176,7 +176,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nexa_bold"
+                android:fontFamily="@font/dmsans_semibold"
                 android:text="Price"
                 android:textSize="12sp"
                 android:textColor="@color/black">
@@ -187,7 +187,7 @@
                 android:id="@+id/priceText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nexa_extra_bold"
+                android:fontFamily="@font/dmsans_bold"
                 android:textSize="18sp"
                 android:textColor="@color/green">
 
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:text="Book Now"
                 android:textColor="@color/white"
-                android:fontFamily="@font/nexa_extra_bold"
+                android:fontFamily="@font/dmsans_bold"
                 android:textAlignment="center"
                 android:layout_gravity="center">
 
