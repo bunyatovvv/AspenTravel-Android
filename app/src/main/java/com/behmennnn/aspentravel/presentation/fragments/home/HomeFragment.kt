@@ -1,4 +1,4 @@
-package com.behmennnn.aspentravel.presentation.fragments
+package com.behmennnn.aspentravel.presentation.fragments.home
 
 import android.os.Bundle
 import android.view.View
