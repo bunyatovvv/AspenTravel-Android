@@ -1,7 +1,7 @@
 package com.behmennnn.aspentravel.di
 
 import com.behmennnn.aspentravel.common.util.BASE_URL
-import com.behmennnn.aspentravel.data.repository.Api
+import com.behmennnn.aspentravel.data.service.Api
 import com.behmennnn.aspentravel.data.repository.ApiRepoImpl
 import com.behmennnn.aspentravel.data.source.ApiSource
 import com.behmennnn.aspentravel.data.source.ApiSourceImpl

@@ -1,4 +1,4 @@
-package com.behmennnn.aspentravel.data.repository
+package com.behmennnn.aspentravel.data.service
 
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 import retrofit2.Response

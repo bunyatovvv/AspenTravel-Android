@@ -2,12 +2,12 @@ package com.behmennnn.aspentravel.data.source
 
 import com.behmennnn.aspentravel.common.util.Resource
 import com.behmennnn.aspentravel.data.dto.LocationDTO
-import com.behmennnn.aspentravel.data.repository.Api
+import com.behmennnn.aspentravel.data.service.Api
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class ApiSourceImpl @Inject constructor(private val api:Api) : ApiSource {
+class ApiSourceImpl @Inject constructor(private val api: Api) : ApiSource {
     override suspend fun getAllLocations(): Resource<List<LocationDTO>> {
         return withContext(Dispatchers.IO) {
             try {
