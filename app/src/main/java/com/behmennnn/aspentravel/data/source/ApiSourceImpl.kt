@@ -83,4 +83,23 @@ class ApiSourceImpl @Inject constructor(private val api: Api) : ApiSource {
             }
         }
     }
+
+    override suspend fun getAllExplore(): Resource<List<LocationDTO>> {
+        return withContext(Dispatchers.IO) {
+            try {
+                Resource.loading(null)
+                val response = api.getAllExplore()
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        Resource.success(it)
+                    } ?: Resource.error("null", null)
+                } else {
+                    val message = "error get all explores"
+                    Resource.error(message, null)
+                }
+            } catch (e: Exception) {
+                Resource.error(e.localizedMessage, null)
+            }
+        }
+    }
 }

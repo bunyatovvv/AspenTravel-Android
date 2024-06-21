@@ -10,6 +10,8 @@ interface ApiRepo {
 
     suspend fun getAllRecommended() : Flow<Resource<List<LocationDTO>>>
 
+    suspend fun getAllExplore() : Flow<Resource<List<LocationDTO>>>
+
     suspend fun getLocationById(locationId: Int) : Flow<Resource<LocationDTO>>
 
     suspend fun getRecommendedById(recommendedId: Int) : Flow<Resource<LocationDTO>>

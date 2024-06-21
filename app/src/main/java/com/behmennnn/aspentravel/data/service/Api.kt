@@ -13,6 +13,9 @@ interface Api {
     @GET("recommended")
     suspend fun getAllRecommended() : Response<List<LocationDTO>>
 
+    @GET("explore")
+    suspend fun getAllExplore() : Response<List<LocationDTO>>
+
     @GET("location/{location_id}")
     suspend fun getLocationById(@Path("location_id") locationId: Int) : Response<LocationDTO>
 
