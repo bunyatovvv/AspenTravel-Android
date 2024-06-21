@@ -1,20 +1,21 @@
 package com.behmennnn.aspentravel.presentation.fragments.explore
 
-import android.icu.text.Transliterator.Position
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseFragment
-import com.behmennnn.aspentravel.common.util.setImageURL
+import com.behmennnn.aspentravel.common.util.Status
 import com.behmennnn.aspentravel.databinding.FragmentExploreBinding
-import com.behmennnn.aspentravel.domain.model.ViewPagerModel
-import com.behmennnn.aspentravel.presentation.fragments.location_detail.ViewPagerAdapter
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBinding::inflate) {
 
+    private lateinit var exploreViewModel: ExploreViewModel
+    private val exploreAdapter by lazy { ViewPagerAdapter() }
 
     private val params = LinearLayout.LayoutParams(
         LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -27,19 +28,22 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val item1 = ViewPagerModel("salam", "uzun sozun qisasi bunu test edirem", "https://images.squarespace-cdn.com/content/v1/54dbbc3ce4b0a4fe55c89d18/1527593435141-J2R0AV1YGT40XLWMLYSI/htl-2815+%281%29.jpg?format=1000w")
-        val item2 = ViewPagerModel("salasdasdam", "uzun sozun qisasi bunu test easdasddirem", "https://i.natgeofe.com/n/f01fa8fc-d26a-4da1-8704-c73b789aabbd/santorini_AWL_GRE1919AW_HR.jpg?w=1280&h=853")
-        val item3 = ViewPagerModel("salasdasdam", "uzun sozun qisasi bunu test easdasddireasdasm", "https://i.natgeofe.com/n/f01fa8fc-d26a-4da1-8704-c73b789aabbd/santorini_AWL_GRE1919AW_HR.jpg?w=1280&h=853")
-        val item4 = ViewPagerModel("salasdasdam", "uzun sozun qisasi bunu test easdasddireasdasm", "https://i.natgeofe.com/n/f01fa8fc-d26a-4da1-8704-c73b789aabbd/santorini_AWL_GRE1919AW_HR.jpg?w=1280&h=853")
+        exploreViewModel = ViewModelProvider(requireActivity())[ExploreViewModel::class.java]
+
+        binding.viewPager.adapter = exploreAdapter
+
+        observeLiveData()
 
 
-        val items = listOf<ViewPagerModel>(item1,item2,item3,item4)
+    }
 
-        val adapter = ViewPagerAdapter(items)
-        binding.viewPager.adapter = adapter
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding.viewPager.unregisterOnPageChangeCallback(pageChangeListener)
+    }
 
-
-        val dotsImage = Array(items.size) {ImageView(requireActivity())}
+    private fun setViewAdapter(){
+        val dotsImage = Array(exploreAdapter.location.size) {ImageView(requireActivity())}
 
         dotsImage.forEach {
             it.setImageResource(R.drawable.vp_notselected)
@@ -66,24 +70,20 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBind
         binding.viewPager.registerOnPageChangeCallback(pageChangeListener)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding.viewPager.unregisterOnPageChangeCallback(pageChangeListener)
-    }
+    private fun observeLiveData(){
+        exploreViewModel.exploreData.observe(viewLifecycleOwner, Observer {
+            when(it.status){
+                Status.SUCCESS -> {
+                    exploreAdapter.location = it.data!!
+                    setViewAdapter()
+                }
+                Status.ERROR -> {
 
-    private fun createDotIndicator(count: Int){
-        for (i in 0 until count){
-            val dot = ImageView(requireContext())
-            dot.setImageResource(R.drawable.vp_selector)
-            binding.dotIndicator.addView(dot)
-        }
-    }
+                }
+                Status.LOADING -> {
 
-    private fun updateDotIndicator(position: Int){
-        for (i in 0 until binding.dotIndicator.childCount){
-            val dot = binding.dotIndicator.getChildAt(i) as ImageView
-            dot.isSelected = 1 == position
-        }
-
+                }
+            }
+        })
     }
 }
