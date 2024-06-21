@@ -65,4 +65,22 @@ class ApiRepoImpl @Inject constructor(
             }
         }
     }
+
+    override suspend fun getRecommendedById(recommendedId: Int): Flow<Resource<LocationDTO>> = flow {
+        emit(Resource.loading(null))
+        val response = source.getRecommendedById(recommendedId)
+        when (response.status) {
+            Status.SUCCESS -> {
+                emit(Resource.success(response.data))
+            }
+
+            Status.ERROR -> {
+                emit(Resource.error(response.message ?: "Error", null))
+            }
+
+            else -> {
+                emit(Resource.loading(null))
+            }
+        }
+    }
 }

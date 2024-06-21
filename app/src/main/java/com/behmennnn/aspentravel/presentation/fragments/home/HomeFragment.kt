@@ -42,6 +42,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             homeViewModel.getLocationById(it.id)
             findNavController().navigate(R.id.action_homeFragment_to_locationDetailFragment)
         }
+        recommendedAdapter.setOnItemClickListener {
+            homeViewModel.getRecommendedById(it.id)
+            findNavController().navigate(R.id.action_homeFragment_to_locationDetailFragment)
+        }
     }
 
     private fun observeLiveData() {

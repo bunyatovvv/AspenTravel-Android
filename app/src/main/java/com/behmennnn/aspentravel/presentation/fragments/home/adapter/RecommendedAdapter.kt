@@ -48,5 +48,17 @@ class RecommendedAdapter : RecyclerView.Adapter<RecommendedAdapter.RecommendedHo
             countryText.text = "${item.country}, ${item.city}"
             locationImage.setImageURL(item.image,holder.itemView.context)
         }
+
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.let {
+                it(item)
+            }
+        }
+    }
+
+    private var onItemClickListener: ((LocationDTO) -> Unit)? = null
+
+    fun setOnItemClickListener(listener: (LocationDTO) -> Unit) {
+        onItemClickListener = listener
     }
 }

@@ -37,7 +37,7 @@ class ApiSourceImpl @Inject constructor(private val api: Api) : ApiSource {
                         Resource.success(it)
                     } ?: Resource.error("null", null)
                 } else {
-                    val message = "error get all locations"
+                    val message = "error get all recommendeds"
                     Resource.error(message, null)
                 }
             } catch (e: Exception) {
@@ -56,7 +56,26 @@ class ApiSourceImpl @Inject constructor(private val api: Api) : ApiSource {
                         Resource.success(it)
                     } ?: Resource.error("null", null)
                 } else {
-                    val message = "error get all locations"
+                    val message = "error get id locations"
+                    Resource.error(message, null)
+                }
+            } catch (e: Exception) {
+                Resource.error(e.localizedMessage, null)
+            }
+        }
+    }
+
+    override suspend fun getRecommendedById(recommendedId: Int): Resource<LocationDTO> {
+        return withContext(Dispatchers.IO) {
+            try {
+                Resource.loading(null)
+                val response = api.getRecommendedById(recommendedId)
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        Resource.success(it)
+                    } ?: Resource.error("null", null)
+                } else {
+                    val message = "error get id recommendeds"
                     Resource.error(message, null)
                 }
             } catch (e: Exception) {
