@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseFragment
 import com.behmennnn.aspentravel.common.util.Status
+import com.behmennnn.aspentravel.common.util.gone
+import com.behmennnn.aspentravel.common.util.visible
 import com.behmennnn.aspentravel.databinding.FragmentHomeBinding
 import com.behmennnn.aspentravel.presentation.fragments.home.adapter.PopularAdapter
 import com.behmennnn.aspentravel.presentation.fragments.home.adapter.RecommendedAdapter
@@ -29,8 +31,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
 
         binding.popularRv.adapter = popularAdapter
         binding.recommendedRv.adapter = recommendedAdapter
-        binding.popularRv.layoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
-        binding.recommendedRv.layoutManager = LinearLayoutManager(requireActivity(),LinearLayoutManager.HORIZONTAL,false)
+        binding.popularRv.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
+        binding.recommendedRv.layoutManager =
+            LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
 
         observeLiveData()
 
@@ -40,29 +44,34 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         }
     }
 
-    private fun observeLiveData(){
-        homeViewModel.popularData.observe(viewLifecycleOwner, Observer {
-            when(it.status){
+    private fun observeLiveData() {
+        homeViewModel.popularData.observe(viewLifecycleOwner, Observer { location ->
+            when (location.status) {
                 Status.SUCCESS -> {
-                    popularAdapter.location = it.data!!
+                    popularAdapter.location = location.data!!
+                    binding.mainScrollView.visible()
                 }
+
                 Status.ERROR -> {
-
+                    binding.mainScrollView.gone()
                 }
-                Status.LOADING -> {
 
+                Status.LOADING -> {
+                    binding.mainScrollView.gone()
                 }
             }
         })
 
         homeViewModel.recommendedData.observe(viewLifecycleOwner, Observer {
-            when(it.status){
+            when (it.status) {
                 Status.SUCCESS -> {
                     recommendedAdapter.location = it.data!!
                 }
+
                 Status.ERROR -> {
 
                 }
+
                 Status.LOADING -> {
 
                 }

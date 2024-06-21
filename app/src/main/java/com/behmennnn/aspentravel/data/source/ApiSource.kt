@@ -11,5 +11,4 @@ interface ApiSource {
 
     suspend fun getLocationById( locationId: Int) : Resource<LocationDTO>
 
-
 }

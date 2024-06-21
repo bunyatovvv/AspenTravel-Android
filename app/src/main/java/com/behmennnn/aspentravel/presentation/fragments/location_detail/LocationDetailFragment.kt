@@ -1,6 +1,8 @@
 package com.behmennnn.aspentravel.presentation.fragments.location_detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract.RawContacts.Data
 import android.view.View
@@ -19,7 +21,6 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
 
     private lateinit var homeViewModel: HomeViewModel
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -28,6 +29,7 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
         binding.backButton.setOnClickListener {
             findNavController().navigateUp()
         }
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -42,15 +44,22 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
                         binding.locationImage.setImageURL(this.image,requireActivity())
                         binding.ratingText.text = this.rating.toString()
                         binding.mainScrollView.visible()
-
+                        binding.bookLayout.visible()
+                        binding.bookButton.setOnClickListener {
+                            val openURL = Intent(Intent.ACTION_VIEW)
+                            openURL.data = Uri.parse(this.book)
+                            startActivity(openURL)
+                        }
                     }
                 }
                 Status.ERROR -> {
                     binding.mainScrollView.gone()
-
+                    binding.bookLayout.gone()
                 }
                 Status.LOADING -> {
                     binding.mainScrollView.gone()
+                    binding.bookLayout.gone()
+
                 }
             }
         })
