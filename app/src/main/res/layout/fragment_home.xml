@@ -185,6 +185,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
             <TextView
+                android:id="@+id/seeAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_semibold"
