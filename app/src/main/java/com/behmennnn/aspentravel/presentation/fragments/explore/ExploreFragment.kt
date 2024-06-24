@@ -11,6 +11,7 @@ import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseFragment
 import com.behmennnn.aspentravel.common.util.Status
 import com.behmennnn.aspentravel.databinding.FragmentExploreBinding
+import com.behmennnn.aspentravel.presentation.fragments.explore.adapter.ViewPagerAdapter
 
 class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBinding::inflate) {
 

@@ -1,4 +1,4 @@
-package com.behmennnn.aspentravel.presentation.fragments.explore
+package com.behmennnn.aspentravel.presentation.fragments.explore.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
