@@ -30,6 +30,24 @@ class ApiRepoImpl @Inject constructor(
         }
     }
 
+    override suspend fun getPopular(): Flow<Resource<List<LocationDTO>>> = flow {
+        emit(Resource.loading(null))
+        val response = source.getPopular()
+        when (response.status) {
+            Status.SUCCESS -> {
+                emit(Resource.success(response.data))
+            }
+
+            Status.ERROR -> {
+                emit(Resource.error(response.message ?: "Error", null))
+            }
+
+            else -> {
+                emit(Resource.loading(emptyList()))
+            }
+        }
+    }
+
     override suspend fun getAllRecommended(): Flow<Resource<List<LocationDTO>>> = flow {
         emit(Resource.loading(null))
         val response = source.getAllRecommended()

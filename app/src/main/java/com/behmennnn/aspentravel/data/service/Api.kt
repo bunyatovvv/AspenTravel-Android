@@ -10,6 +10,9 @@ interface Api {
     @GET("location")
     suspend fun getAllLocations() : Response<List<LocationDTO>>
 
+    @GET("location_popular")
+    suspend fun getPopular() : Response<List<LocationDTO>>
+
     @GET("recommended")
     suspend fun getAllRecommended() : Response<List<LocationDTO>>
 

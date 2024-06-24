@@ -28,13 +28,13 @@ class HomeViewModel @Inject constructor(
     val locationDetail: LiveData<Resource<LocationDTO>> get()=_locationDetail
 
     init {
-        getAllLocations()
+        getPopular()
         getAllRecommended()
     }
 
-    fun getAllLocations(){
+    fun getPopular(){
         viewModelScope.launch(Dispatchers.IO) {
-            val response = apiRepo.getAllLocations()
+            val response = apiRepo.getPopular()
             response.collectLatest {
                 _popularData.postValue(it)
             }
