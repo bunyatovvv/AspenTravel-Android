@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_locationDetailFragment"
             app:destination="@id/locationDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_allLocationsFragment"
+            app:destination="@id/allLocationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -28,4 +31,8 @@
         android:id="@+id/locationDetailFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.location_detail.LocationDetailFragment"
         android:label="LocationDetailFragment" />
+    <fragment
+        android:id="@+id/allLocationsFragment"
+        android:name="com.behmennnn.aspentravel.presentation.fragments.all_locations.AllLocationsFragment"
+        android:label="AllLocationsFragment" />
 </navigation>
