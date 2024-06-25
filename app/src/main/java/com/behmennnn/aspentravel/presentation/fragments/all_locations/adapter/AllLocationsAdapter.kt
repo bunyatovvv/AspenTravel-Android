@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.behmennnn.aspentravel.common.util.setImageURL
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 import com.behmennnn.aspentravel.databinding.SingleAllLocationsBinding
 
@@ -44,6 +45,7 @@ class AllLocationsAdapter : RecyclerView.Adapter<AllLocationsAdapter.AllLocation
         with(holder.binding){
             titleText.text = item.name
             countryText.text = "${item.country}, ${item.city}"
+            locationImage.setImageURL(item.image,holder.itemView.context)
         }
         holder.itemView.setOnClickListener {
             onItemClickListener?.let {
