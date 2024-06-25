@@ -26,6 +26,7 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
         super.onViewCreated(view, savedInstanceState)
 
         baseViewModel = ViewModelProvider(requireActivity())[BaseViewModel::class.java]
+
         observeLiveData()
         binding.backButton.setOnClickListener {
             findNavController().navigateUp()

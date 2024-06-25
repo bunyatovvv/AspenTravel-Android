@@ -30,6 +30,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         super.onViewCreated(view, savedInstanceState)
 
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
+        baseViewModel = ViewModelProvider(requireActivity())[BaseViewModel::class.java]
+
 
         binding.popularRv.adapter = popularAdapter
         binding.recommendedRv.adapter = recommendedAdapter
