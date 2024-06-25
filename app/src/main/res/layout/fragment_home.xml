@@ -58,19 +58,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:hint="Find things to do"
+                android:textColorHint="#B8B8B8"
+                app:boxBackgroundColor="@color/main_50"
+                app:boxCornerRadiusBottomEnd="25dp"
+                app:boxCornerRadiusBottomStart="25dp"
+                app:boxCornerRadiusTopEnd="25dp"
+                app:boxCornerRadiusTopStart="25dp"
+                app:boxStrokeWidth="0dp"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="#B8B8B8"
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:boxBackgroundColor="@color/main_50"
-                app:hintTextColor="#B8B8B8"
-                app:boxCornerRadiusBottomEnd="25dp"
-                app:boxCornerRadiusTopEnd="25dp"
-                app:boxStrokeWidth="0dp"
-                app:boxCornerRadiusTopStart="25dp"
-                app:boxCornerRadiusBottomStart="25dp"
-                android:hint="Find things to do"
-
-                android:textColorHint="#B8B8B8"
-                app:hintAnimationEnabled="true"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -164,11 +164,9 @@
                         android:fontFamily="@font/dmsans_regular"
                         android:text="Adventure"
                         android:textAlignment="center"
-
                         android:textColor="@drawable/radio_text">
 
                     </RadioButton>
-
                 </RadioGroup>
             </HorizontalScrollView>
 
@@ -235,8 +233,6 @@
 
             </androidx.recyclerview.widget.RecyclerView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </ScrollView>
 
 
