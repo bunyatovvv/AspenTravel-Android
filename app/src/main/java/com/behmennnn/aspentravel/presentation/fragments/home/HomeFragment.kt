@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseFragment
+import com.behmennnn.aspentravel.common.BaseViewModel
 import com.behmennnn.aspentravel.common.util.Status
 import com.behmennnn.aspentravel.common.util.gone
 import com.behmennnn.aspentravel.common.util.visible
@@ -20,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var baseViewModel: BaseViewModel
     private val popularAdapter by lazy { PopularAdapter() }
     private val recommendedAdapter by lazy { RecommendedAdapter() }
 
@@ -39,7 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         observeLiveData()
 
         popularAdapter.setOnItemClickListener {
-            homeViewModel.getLocationById(it.id)
+            baseViewModel.getLocationById(it.id)
             findNavController().navigate(R.id.action_homeFragment_to_locationDetailFragment)
         }
         recommendedAdapter.setOnItemClickListener {

@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.behmennnn.aspentravel.common.BaseFragment
+import com.behmennnn.aspentravel.common.BaseViewModel
 import com.behmennnn.aspentravel.common.util.Status
 import com.behmennnn.aspentravel.common.util.gone
 import com.behmennnn.aspentravel.common.util.setImageURL
@@ -19,12 +20,12 @@ import com.behmennnn.aspentravel.presentation.fragments.home.HomeViewModel
 
 class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(FragmentLocationDetailBinding::inflate) {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var baseViewModel: BaseViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
+        baseViewModel = ViewModelProvider(requireActivity())[BaseViewModel::class.java]
         observeLiveData()
         binding.backButton.setOnClickListener {
             findNavController().navigateUp()
@@ -34,7 +35,7 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
 
     @SuppressLint("SetTextI18n")
     private fun observeLiveData(){
-        homeViewModel.locationDetail.observe(viewLifecycleOwner, Observer{
+        baseViewModel.locationDetail.observe(viewLifecycleOwner, Observer{
             when(it.status){
                 Status.SUCCESS -> {
                     with(it.data!!){
