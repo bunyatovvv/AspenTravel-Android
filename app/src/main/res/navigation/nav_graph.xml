@@ -34,5 +34,9 @@
     <fragment
         android:id="@+id/allLocationsFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.all_locations.AllLocationsFragment"
-        android:label="AllLocationsFragment" />
+        android:label="AllLocationsFragment" >
+        <action
+            android:id="@+id/action_allLocationsFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
+    </fragment>
 </navigation>
