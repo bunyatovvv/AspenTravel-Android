@@ -10,10 +10,18 @@
         android:label="HomeFragment" >
         <action
             android:id="@+id/action_homeFragment_to_locationDetailFragment"
-            app:destination="@id/locationDetailFragment" />
+            app:destination="@id/locationDetailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
         <action
             android:id="@+id/action_homeFragment_to_allLocationsFragment"
-            app:destination="@id/allLocationsFragment" />
+            app:destination="@id/allLocationsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -37,6 +45,10 @@
         android:label="AllLocationsFragment" >
         <action
             android:id="@+id/action_allLocationsFragment_to_locationDetailFragment"
-            app:destination="@id/locationDetailFragment" />
+            app:destination="@id/locationDetailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
     </fragment>
 </navigation>
