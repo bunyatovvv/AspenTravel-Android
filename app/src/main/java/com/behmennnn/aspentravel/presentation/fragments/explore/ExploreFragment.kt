@@ -1,5 +1,7 @@
 package com.behmennnn.aspentravel.presentation.fragments.explore
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -17,25 +19,19 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBind
 
     private lateinit var exploreViewModel: ExploreViewModel
     private val exploreAdapter by lazy { ViewPagerAdapter() }
-
-    private val params = LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.WRAP_CONTENT,
-        LinearLayout.LayoutParams.WRAP_CONTENT
-    ).apply {
-        setMargins(8,0,8,0)
-    }
     private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         exploreViewModel = ViewModelProvider(requireActivity())[ExploreViewModel::class.java]
-
         binding.viewPager.adapter = exploreAdapter
-
         observeLiveData()
-
-
+        exploreAdapter.setOnBookingClickListener {
+            val openURL = Intent(Intent.ACTION_VIEW)
+            openURL.data = Uri.parse(it.book)
+            startActivity(openURL)
+        }
     }
 
     override fun onDestroyView() {
@@ -43,44 +39,49 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>(FragmentExploreBind
         binding.viewPager.unregisterOnPageChangeCallback(pageChangeListener)
     }
 
-    private fun setViewAdapter(){
-        val dotsImage = Array(exploreAdapter.location.size) {ImageView(requireActivity())}
+    private fun setViewAdapter() {
+        val dotsImage = Array(exploreAdapter.location.size) { ImageView(requireActivity()) }
+
+        val params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        ).apply {
+            setMargins(8, 0, 8, 0)
+        }
 
         dotsImage.forEach {
             it.setImageResource(R.drawable.vp_notselected)
-            binding.dotIndicator.addView(it,params)
+            binding.dotIndicator.addView(it, params)
         }
         dotsImage[0].setImageResource(R.drawable.vp_selected)
-        pageChangeListener = object : ViewPager2.OnPageChangeCallback(){
+        pageChangeListener = object : ViewPager2.OnPageChangeCallback() {
+
             override fun onPageSelected(position: Int) {
-
-                dotsImage.mapIndexed{index, imageview->
-
-                    if (position == index){
+                dotsImage.mapIndexed { index, imageview ->
+                    if (position == index) {
                         imageview.setImageResource(R.drawable.vp_selected)
                     } else {
                         imageview.setImageResource(R.drawable.vp_notselected)
-
                     }
-
                 }
-
                 super.onPageSelected(position)
             }
         }
         binding.viewPager.registerOnPageChangeCallback(pageChangeListener)
     }
 
-    private fun observeLiveData(){
+    private fun observeLiveData() {
         exploreViewModel.exploreData.observe(viewLifecycleOwner, Observer {
-            when(it.status){
+            when (it.status) {
                 Status.SUCCESS -> {
                     exploreAdapter.location = it.data!!
                     setViewAdapter()
                 }
+
                 Status.ERROR -> {
 
                 }
+
                 Status.LOADING -> {
 
                 }
