@@ -1,7 +1,10 @@
 package com.behmennnn.aspentravel.presentation.fragments.explore.adapter
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -46,7 +49,18 @@ class ViewPagerAdapter () : RecyclerView.Adapter<ViewPagerAdapter.PagerViewHolde
             locationText.text = "${item.city}, ${item.country}"
             priceText.text = "$${item.price}"
             bgImage.setImageURL(item.image,holder.itemView.context)
-        }
 
+            bookingButton.setOnClickListener {
+                onBookingClickListener?.let {
+                    it(item)
+                }
+            }
+        }
+    }
+
+    private var onBookingClickListener: ((LocationDTO) -> Unit)? = null
+
+    fun setOnBookingClickListener(listener: (LocationDTO) -> Unit) {
+        onBookingClickListener = listener
     }
 }
