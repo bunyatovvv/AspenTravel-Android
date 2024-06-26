@@ -1,5 +1,6 @@
 package com.behmennnn.aspentravel.data.service
 
+import com.behmennnn.aspentravel.data.dto.HotelDTO
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 import retrofit2.Response
 import retrofit2.http.GET
@@ -18,6 +19,9 @@ interface Api {
 
     @GET("explore")
     suspend fun getAllExplore() : Response<List<LocationDTO>>
+
+    @GET("hotel")
+    suspend fun getAllHotels() : Response<List<HotelDTO>>
 
     @GET("location/{location_id}")
     suspend fun getLocationById(@Path("location_id") locationId: Int) : Response<LocationDTO>
