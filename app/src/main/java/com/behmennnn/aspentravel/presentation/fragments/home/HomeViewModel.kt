@@ -50,12 +50,4 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun getRecommendedById(recommendedId: Int){
-        viewModelScope.launch(Dispatchers.IO) {
-            val response = apiRepo.getRecommendedById(recommendedId)
-            response.collectLatest {
-                _locationDetail.postValue(it)
-            }
-        }
-    }
 }

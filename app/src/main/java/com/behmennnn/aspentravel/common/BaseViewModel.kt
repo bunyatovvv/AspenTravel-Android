@@ -29,4 +29,13 @@ class BaseViewModel @Inject constructor(
             }
         }
     }
+
+    fun getRecommendedById(recommendedId: Int){
+        viewModelScope.launch(Dispatchers.IO) {
+            val response = apiRepoImpl.getRecommendedById(recommendedId)
+            response.collectLatest {
+                _locationDetail.postValue(it)
+            }
+        }
+    }
 }

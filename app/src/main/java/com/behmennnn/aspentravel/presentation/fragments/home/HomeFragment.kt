@@ -47,7 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             findNavController().navigate(R.id.action_homeFragment_to_locationDetailFragment)
         }
         recommendedAdapter.setOnItemClickListener {
-            homeViewModel.getRecommendedById(it.id)
+            baseViewModel.getRecommendedById(it.id)
             findNavController().navigate(R.id.action_homeFragment_to_locationDetailFragment)
         }
 
