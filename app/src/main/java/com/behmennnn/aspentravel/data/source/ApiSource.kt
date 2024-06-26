@@ -1,6 +1,7 @@
 package com.behmennnn.aspentravel.data.source
 
 import com.behmennnn.aspentravel.common.util.Resource
+import com.behmennnn.aspentravel.data.dto.HotelDTO
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 
 interface ApiSource {
@@ -10,6 +11,8 @@ interface ApiSource {
     suspend fun getPopular() : Resource<List<LocationDTO>>
 
     suspend fun getAllRecommended() : Resource<List<LocationDTO>>
+
+    suspend fun getAllHotels() : Resource<List<HotelDTO>>
 
     suspend fun getAllExplore() : Resource<List<LocationDTO>>
 

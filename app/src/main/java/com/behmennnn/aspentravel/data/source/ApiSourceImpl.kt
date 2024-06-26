@@ -1,6 +1,7 @@
 package com.behmennnn.aspentravel.data.source
 
 import com.behmennnn.aspentravel.common.util.Resource
+import com.behmennnn.aspentravel.data.dto.HotelDTO
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 import com.behmennnn.aspentravel.data.service.Api
 import kotlinx.coroutines.Dispatchers
@@ -19,6 +20,25 @@ class ApiSourceImpl @Inject constructor(private val api: Api) : ApiSource {
                     } ?: Resource.error("null", null)
                 } else {
                     val message = "error get all locations"
+                    Resource.error(message, null)
+                }
+            } catch (e: Exception) {
+                Resource.error(e.localizedMessage, null)
+            }
+        }
+    }
+
+    override suspend fun getAllHotels(): Resource<List<HotelDTO>> {
+        return withContext(Dispatchers.IO) {
+            try {
+                Resource.loading(null)
+                val response = api.getAllHotels()
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        Resource.success(it)
+                    } ?: Resource.error("null", null)
+                } else {
+                    val message = "error get all hotels"
                     Resource.error(message, null)
                 }
             } catch (e: Exception) {
