@@ -47,7 +47,7 @@ dependencies {
     val nav_version = "2.7.7"
     val retrofit_version = "2.11.0"
     val okhttp_version = "4.12.0"
-    val dagger_version = "2.28.3"
+    val dagger_version = "2.51.1"
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -72,20 +72,26 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
 
     //Dagger
-    implementation ("com.google.dagger:hilt-android:2.51.1")
-    kapt ("com.google.dagger:hilt-compiler:2.51.1")
-    annotationProcessor ("com.google.dagger:hilt-compiler:2.51.1")
+    implementation ("com.google.dagger:hilt-android:$dagger_version")
+    kapt ("com.google.dagger:hilt-compiler:$dagger_version")
+    annotationProcessor ("com.google.dagger:hilt-compiler:$dagger_version")
 
+    //Lifecycle
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
 
+    //RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
+    //Glide
     implementation ("com.github.bumptech.glide:glide:4.15.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.15.0")
 
+    //Viewpager
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
+
+    //Google Maps
     implementation("com.google.android.gms:play-services-maps:18.2.0")
 
-    implementation("androidx.viewpager2:viewpager2:1.1.0")
 
 
 }
