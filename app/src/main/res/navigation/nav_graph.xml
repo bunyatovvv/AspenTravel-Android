@@ -38,7 +38,11 @@
     <fragment
         android:id="@+id/locationDetailFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.location_detail.LocationDetailFragment"
-        android:label="LocationDetailFragment" />
+        android:label="LocationDetailFragment" >
+        <action
+            android:id="@+id/action_locationDetailFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/allLocationsFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.all_locations.AllLocationsFragment"
@@ -51,4 +55,8 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.behmennnn.aspentravel.presentation.fragments.map.MapFragment"
+        android:label="MapFragment" />
 </navigation>
