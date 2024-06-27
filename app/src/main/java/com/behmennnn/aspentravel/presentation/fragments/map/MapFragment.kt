@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseViewModel
 import com.behmennnn.aspentravel.common.util.Status
@@ -44,6 +45,9 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 
         baseViewModel = ViewModelProvider(requireActivity())[BaseViewModel::class.java]
         observeLiveData()
+        binding.backButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
     }
 
@@ -53,6 +57,7 @@ class MapFragment : Fragment(), OnMapReadyCallback {
                 Status.SUCCESS -> {
                     val item = it.data!!
                     address = LatLng(item.longitude,item.latitude)
+                    binding.locationName.text = item.name
                 }
                 Status.LOADING -> {
 
