@@ -63,6 +63,8 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
                             openURL.data = Uri.parse(this.book)
                             startActivity(openURL)
                         }
+                        binding.featuresRv.visible()
+                        featureAdapter.feature = this.feature
                     }
                 }
                 Status.ERROR -> {
