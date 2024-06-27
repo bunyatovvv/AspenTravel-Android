@@ -13,11 +13,7 @@ interface ApiRepo {
 
     suspend fun getAllRecommended() : Flow<Resource<List<LocationDTO>>>
 
-    suspend fun getAllHotels() : Flow<Resource<List<HotelDTO>>>
-
     suspend fun getAllExplore() : Flow<Resource<List<LocationDTO>>>
-
-    suspend fun getHotelById(hotelId : Int) : Flow<Resource<HotelDTO>>
 
     suspend fun getLocationById(locationId: Int) : Flow<Resource<LocationDTO>>
 

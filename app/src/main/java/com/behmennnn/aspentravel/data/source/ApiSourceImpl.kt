@@ -28,44 +28,6 @@ class ApiSourceImpl @Inject constructor(private val api: Api) : ApiSource {
         }
     }
 
-    override suspend fun getAllHotels(): Resource<List<HotelDTO>> {
-        return withContext(Dispatchers.IO) {
-            try {
-                Resource.loading(null)
-                val response = api.getAllHotels()
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        Resource.success(it)
-                    } ?: Resource.error("null", null)
-                } else {
-                    val message = "error get all hotels"
-                    Resource.error(message, null)
-                }
-            } catch (e: Exception) {
-                Resource.error(e.localizedMessage, null)
-            }
-        }
-    }
-
-    override suspend fun getHotelById(hotelId: Int): Resource<HotelDTO> {
-        return withContext(Dispatchers.IO) {
-            try {
-                Resource.loading(null)
-                val response = api.getHotelById(hotelId)
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        Resource.success(it)
-                    } ?: Resource.error("null", null)
-                } else {
-                    val message = "error get id hotel"
-                    Resource.error(message, null)
-                }
-            } catch (e: Exception) {
-                Resource.error(e.localizedMessage, null)
-            }
-        }
-    }
-
     override suspend fun getPopular(): Resource<List<LocationDTO>> {
         return withContext(Dispatchers.IO) {
             try {

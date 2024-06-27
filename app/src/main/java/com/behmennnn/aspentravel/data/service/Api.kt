@@ -20,12 +20,6 @@ interface Api {
     @GET("explore")
     suspend fun getAllExplore() : Response<List<LocationDTO>>
 
-    @GET("hotel")
-    suspend fun getAllHotels() : Response<List<HotelDTO>>
-
-    @GET("hotel/{hotel_id}")
-    suspend fun getHotelById(@Path("hotel_id") hotelId: Int) : Response<HotelDTO>
-
     @GET("location/{location_id}")
     suspend fun getLocationById(@Path("location_id") locationId: Int) : Response<LocationDTO>
 
