@@ -3,7 +3,6 @@ package com.behmennnn.aspentravel.data.repository
 import com.behmennnn.aspentravel.domain.repository.ApiRepo
 import com.behmennnn.aspentravel.common.util.Resource
 import com.behmennnn.aspentravel.common.util.Status
-import com.behmennnn.aspentravel.data.dto.HotelDTO
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 import com.behmennnn.aspentravel.data.source.ApiSource
 import kotlinx.coroutines.flow.Flow

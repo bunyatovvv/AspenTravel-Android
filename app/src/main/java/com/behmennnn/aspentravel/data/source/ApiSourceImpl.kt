@@ -1,7 +1,6 @@
 package com.behmennnn.aspentravel.data.source
 
 import com.behmennnn.aspentravel.common.util.Resource
-import com.behmennnn.aspentravel.data.dto.HotelDTO
 import com.behmennnn.aspentravel.data.dto.LocationDTO
 import com.behmennnn.aspentravel.data.service.Api
 import kotlinx.coroutines.Dispatchers
