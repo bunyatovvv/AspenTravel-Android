@@ -9,6 +9,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.behmennnn.aspentravel.R
 import com.behmennnn.aspentravel.common.BaseFragment
 import com.behmennnn.aspentravel.common.BaseViewModel
 import com.behmennnn.aspentravel.common.util.Status
@@ -31,7 +32,9 @@ class LocationDetailFragment : BaseFragment<FragmentLocationDetailBinding>(Fragm
         binding.backButton.setOnClickListener {
             findNavController().navigateUp()
         }
-
+        binding.showMap.setOnClickListener {
+            findNavController().navigate(R.id.action_locationDetailFragment_to_mapFragment)
+        }
     }
 
     @SuppressLint("SetTextI18n")
