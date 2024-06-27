@@ -13,5 +13,6 @@ data class LocationDTO(
     val name: String,
     val price: Int,
     val rating: Double,
-    val category: String
+    val category: String,
+    val feature: List<Feature>
 )
