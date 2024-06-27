@@ -13,5 +13,6 @@ data class HotelDTO(
     val longitude: Double,
     val name: String,
     val price: Int,
-    val rating: Double
+    val rating: Double,
+    val category: String
 )
