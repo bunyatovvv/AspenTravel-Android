@@ -16,6 +16,8 @@ interface ApiSource {
 
     suspend fun getAllExplore() : Resource<List<LocationDTO>>
 
+    suspend fun getHotelById(hotelId: Int) : Resource<HotelDTO>
+
     suspend fun getLocationById(locationId: Int) : Resource<LocationDTO>
 
     suspend fun getRecommendedById(recommendedId: Int) : Resource<LocationDTO>

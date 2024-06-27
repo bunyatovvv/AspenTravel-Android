@@ -31,6 +31,24 @@ class ApiRepoImpl @Inject constructor(
         }
     }
 
+    override suspend fun getHotelById(hotelId: Int): Flow<Resource<HotelDTO>> = flow {
+        emit(Resource.loading(null))
+        val response = source.getHotelById(hotelId)
+        when (response.status) {
+            Status.SUCCESS -> {
+                emit(Resource.success(response.data))
+            }
+
+            Status.ERROR -> {
+                emit(Resource.error(response.message ?: "Error", null))
+            }
+
+            else -> {
+                emit(Resource.loading(null))
+            }
+        }
+    }
+
     override suspend fun getAllHotels(): Flow<Resource<List<HotelDTO>>> = flow {
         emit(Resource.loading(null))
         val response = source.getAllHotels()
