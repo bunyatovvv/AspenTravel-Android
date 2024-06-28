@@ -63,8 +63,8 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     ///Retrofit
-    implementation("com.squareup.retrofit2:retrofit:$retrofit_version")
-    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation(libs.retrofit)
+    implementation (libs.converter.gson)
 
     //OkHttp
     implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
