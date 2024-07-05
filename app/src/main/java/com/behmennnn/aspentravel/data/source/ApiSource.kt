@@ -9,6 +9,8 @@ interface ApiSource {
 
     suspend fun getPopular() : Resource<List<LocationDTO>>
 
+    suspend fun getAllHotels() : Resource<List<LocationDTO>>
+
     suspend fun getAllRecommended() : Resource<List<LocationDTO>>
 
     suspend fun getAllExplore() : Resource<List<LocationDTO>>

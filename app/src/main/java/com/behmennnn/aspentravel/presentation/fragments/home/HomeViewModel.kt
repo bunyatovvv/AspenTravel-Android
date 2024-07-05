@@ -50,4 +50,12 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun getAllHotels(){
+        viewModelScope.launch(Dispatchers.IO){
+            val response = apiRepo.getAllHotels()
+            response.collectLatest {
+                _popularData.postValue(it)
+            }
+        }
+    }
 }

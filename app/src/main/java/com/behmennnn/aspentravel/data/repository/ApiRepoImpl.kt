@@ -19,11 +19,9 @@ class ApiRepoImpl @Inject constructor(
             Status.SUCCESS -> {
                 emit(Resource.success(response.data))
             }
-
             Status.ERROR -> {
                 emit(Resource.error(response.message ?: "Error", null))
             }
-
             else -> {
                 emit(Resource.loading(emptyList()))
             }
@@ -37,11 +35,25 @@ class ApiRepoImpl @Inject constructor(
             Status.SUCCESS -> {
                 emit(Resource.success(response.data))
             }
-
             Status.ERROR -> {
                 emit(Resource.error(response.message ?: "Error", null))
             }
+            else -> {
+                emit(Resource.loading(emptyList()))
+            }
+        }
+    }
 
+    override suspend fun getAllHotels(): Flow<Resource<List<LocationDTO>>> = flow {
+        emit(Resource.loading(null))
+        val response = source.getAllHotels()
+        when (response.status) {
+            Status.SUCCESS -> {
+                emit(Resource.success(response.data))
+            }
+            Status.ERROR -> {
+                emit(Resource.error(response.message ?: "Error", null))
+            }
             else -> {
                 emit(Resource.loading(emptyList()))
             }
@@ -55,11 +67,9 @@ class ApiRepoImpl @Inject constructor(
             Status.SUCCESS -> {
                 emit(Resource.success(response.data))
             }
-
             Status.ERROR -> {
                 emit(Resource.error(response.message ?: "Error", null))
             }
-
             else -> {
                 emit(Resource.loading(emptyList()))
             }
@@ -73,11 +83,9 @@ class ApiRepoImpl @Inject constructor(
             Status.SUCCESS -> {
                 emit(Resource.success(response.data))
             }
-
             Status.ERROR -> {
                 emit(Resource.error(response.message ?: "Error", null))
             }
-
             else -> {
                 emit(Resource.loading(null))
             }
@@ -91,11 +99,9 @@ class ApiRepoImpl @Inject constructor(
             Status.SUCCESS -> {
                 emit(Resource.success(response.data))
             }
-
             Status.ERROR -> {
                 emit(Resource.error(response.message ?: "Error", null))
             }
-
             else -> {
                 emit(Resource.loading(null))
             }
@@ -109,7 +115,6 @@ class ApiRepoImpl @Inject constructor(
             Status.SUCCESS -> {
                 emit(Resource.success(response.data))
             }
-
             Status.ERROR -> {
                 emit(Resource.error(response.message ?: "Error", null))
             }

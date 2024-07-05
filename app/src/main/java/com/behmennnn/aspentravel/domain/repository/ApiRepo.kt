@@ -10,6 +10,8 @@ interface ApiRepo {
 
     suspend fun getPopular() : Flow<Resource<List<LocationDTO>>>
 
+    suspend fun getAllHotels() : Flow<Resource<List<LocationDTO>>>
+
     suspend fun getAllRecommended() : Flow<Resource<List<LocationDTO>>>
 
     suspend fun getAllExplore() : Flow<Resource<List<LocationDTO>>>
