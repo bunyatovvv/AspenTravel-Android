@@ -1,6 +1,7 @@
 package com.behmennnn.aspentravel.presentation.fragments.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -52,6 +53,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             findNavController().navigate(R.id.action_homeFragment_to_allLocationsFragment)
         }
         refreshLayout()
+
+        binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
+            if (checkedId == 2){
+                homeViewModel.getAllHotels()
+            }
+        }
     }
 
     private fun refreshLayout(){
