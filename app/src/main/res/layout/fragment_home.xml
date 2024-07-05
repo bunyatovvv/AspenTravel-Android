@@ -7,234 +7,245 @@
     android:background="@color/white"
     android:padding="20dp">
 
-    <ScrollView
-        android:id="@+id/mainScrollView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
+            android:id="@+id/mainScrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/dmsans_regular"
-                    android:text="Explore"
-                    android:textColor="@color/black"
-                    android:textSize="15sp">
-
-                </TextView>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/dmsans_regular"
-                    android:text="Aspen"
-                    android:textColor="@color/black"
-                    android:textSize="30sp">
-
-                </TextView>
-
-            </LinearLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textinput"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:hint="Find things to do"
-                android:textColorHint="#B8B8B8"
-                app:boxBackgroundColor="@color/main_50"
-                app:boxCornerRadiusBottomEnd="25dp"
-                app:boxCornerRadiusBottomStart="25dp"
-                app:boxCornerRadiusTopEnd="25dp"
-                app:boxCornerRadiusTopStart="25dp"
-                app:boxStrokeWidth="0dp"
-                app:hintAnimationEnabled="true"
-                app:hintTextColor="#B8B8B8"
+                android:layout_height="match_parent">
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editText"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/dmsans_regular"
+                        android:text="Explore"
+                        android:textColor="@color/black"
+                        android:textSize="15sp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/dmsans_regular"
+                        android:text="Aspen"
+                        android:textColor="@color/black"
+                        android:textSize="30sp">
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textinput"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:drawableStart="@drawable/search_icon"
-                    android:drawablePadding="8dp"
-                    android:fontFamily="@font/dmsans_regular"
-                    android:textColorHint="#B8B8B8">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:scrollbars="none"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textinput">
-
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="24dp"
+                    android:hint="Find things to do"
+                    android:textColorHint="#B8B8B8"
+                    app:boxBackgroundColor="@color/main_50"
+                    app:boxCornerRadiusBottomEnd="25dp"
+                    app:boxCornerRadiusBottomStart="25dp"
+                    app:boxCornerRadiusTopEnd="25dp"
+                    app:boxCornerRadiusTopStart="25dp"
+                    app:boxStrokeWidth="0dp"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="#B8B8B8"
 
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:background="@drawable/radio_selector_1"
-                        android:button="@android:color/transparent"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableStart="@drawable/search_icon"
+                        android:drawablePadding="8dp"
                         android:fontFamily="@font/dmsans_regular"
-                        android:text="Location"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/radio_text">
+                        android:textColorHint="#B8B8B8">
 
-                    </RadioButton>
+                    </com.google.android.material.textfield.TextInputEditText>
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:scrollbars="none"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textinput">
+
+                    <RadioGroup
+                        android:id="@+id/radioGroup"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:background="@drawable/radio_selector_1"
-                        android:button="@android:color/transparent"
-                        android:fontFamily="@font/dmsans_regular"
-                        android:text="Hotels"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/radio_text">
+                        android:orientation="horizontal">
 
-                    </RadioButton>
 
-                    <RadioButton
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/radio_selector_1"
+                            android:button="@android:color/transparent"
+                            android:fontFamily="@font/dmsans_regular"
+                            android:text="Location"
+                            android:textAlignment="center"
+                            android:textColor="@drawable/radio_text">
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:background="@drawable/radio_selector_1"
-                        android:button="@android:color/transparent"
-                        android:fontFamily="@font/dmsans_regular"
-                        android:text="Food"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/radio_text">
+                        </RadioButton>
 
-                    </RadioButton>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/radio_selector_1"
+                            android:button="@android:color/transparent"
+                            android:fontFamily="@font/dmsans_regular"
+                            android:text="Hotels"
+                            android:textAlignment="center"
+                            android:textColor="@drawable/radio_text">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
-                        android:background="@drawable/radio_selector_1"
-                        android:button="@android:color/transparent"
-                        android:fontFamily="@font/dmsans_regular"
+                        </RadioButton>
 
-                        android:text="Adventure"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/radio_text">
+                        <RadioButton
 
-                    </RadioButton>
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/radio_selector_1"
+                            android:button="@android:color/transparent"
+                            android:fontFamily="@font/dmsans_regular"
+                            android:text="Food"
+                            android:textAlignment="center"
+                            android:textColor="@drawable/radio_text">
 
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/radio_selector_1"
-                        android:button="@android:color/transparent"
-                        android:fontFamily="@font/dmsans_regular"
-                        android:text="Adventure"
-                        android:textAlignment="center"
-                        android:textColor="@drawable/radio_text">
+                        </RadioButton>
 
-                    </RadioButton>
-                </RadioGroup>
-            </HorizontalScrollView>
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="24dp"
+                            android:background="@drawable/radio_selector_1"
+                            android:button="@android:color/transparent"
+                            android:fontFamily="@font/dmsans_regular"
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/dmsans_semibold"
-                android:text="Popular"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+                            android:text="Adventure"
+                            android:textAlignment="center"
+                            android:textColor="@drawable/radio_text">
 
-            <TextView
-                android:id="@+id/seeAll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/dmsans_semibold"
-                android:text="See all"
-                android:textColor="@color/main_color"
-                app:layout_constraintBottom_toBottomOf="@+id/textView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView" />
+                        </RadioButton>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/popularRv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                tools:listitem="@layout/single_popular">
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_selector_1"
+                            android:button="@android:color/transparent"
+                            android:fontFamily="@font/dmsans_regular"
+                            android:text="Adventure"
+                            android:textAlignment="center"
+                            android:textColor="@drawable/radio_text">
 
-            </androidx.recyclerview.widget.RecyclerView>
+                        </RadioButton>
+                    </RadioGroup>
+                </HorizontalScrollView>
 
-            <TextView
-                android:id="@+id/recommended"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:fontFamily="@font/dmsans_semibold"
-                android:text="Recommended"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/popularRv" />
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/dmsans_semibold"
+                    android:text="Popular"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recommendedRv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recommended"
-                tools:listitem="@layout/single_recommended">
+                <TextView
+                    android:id="@+id/seeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dmsans_semibold"
+                    android:text="See all"
+                    android:textColor="@color/main_color"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView" />
 
-            </androidx.recyclerview.widget.RecyclerView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popularRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    tools:listitem="@layout/single_popular">
 
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/recommended"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="@font/dmsans_semibold"
+                    android:text="Recommended"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/popularRv" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recommendedRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recommended"
+                    tools:listitem="@layout/single_recommended">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
