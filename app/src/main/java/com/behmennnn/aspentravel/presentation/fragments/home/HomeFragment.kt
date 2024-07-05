@@ -2,7 +2,6 @@ package com.behmennnn.aspentravel.presentation.fragments.home
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,13 +24,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val popularAdapter by lazy { PopularAdapter() }
     private val recommendedAdapter by lazy { RecommendedAdapter() }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         homeViewModel = ViewModelProvider(requireActivity())[HomeViewModel::class.java]
         baseViewModel = ViewModelProvider(requireActivity())[BaseViewModel::class.java]
-
 
         binding.popularRv.adapter = popularAdapter
         binding.recommendedRv.adapter = recommendedAdapter
@@ -54,40 +51,45 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         binding.seeAll.setOnClickListener{
             findNavController().navigate(R.id.action_homeFragment_to_allLocationsFragment)
         }
+        refreshLayout()
+    }
+
+    private fun refreshLayout(){
+        with(binding.swipeRefresh){
+            setOnRefreshListener {
+                homeViewModel.getPopular()
+            }
+        }
     }
 
     private fun observeLiveData() {
-        homeViewModel.popularData.observe(viewLifecycleOwner, Observer { location ->
+        homeViewModel.popularData.observe(viewLifecycleOwner) { location ->
             when (location.status) {
                 Status.SUCCESS -> {
                     popularAdapter.location = location.data!!
                     binding.mainScrollView.visible()
+                    binding.swipeRefresh.isRefreshing = false
                 }
-
                 Status.ERROR -> {
                     binding.mainScrollView.gone()
                 }
-
                 Status.LOADING -> {
                     binding.mainScrollView.gone()
+                    binding.swipeRefresh.isRefreshing = true
                 }
             }
-        })
+        }
 
-        homeViewModel.recommendedData.observe(viewLifecycleOwner, Observer {
+        homeViewModel.recommendedData.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
                     recommendedAdapter.location = it.data!!
                 }
-
                 Status.ERROR -> {
-
                 }
-
                 Status.LOADING -> {
-
                 }
             }
-        })
+        }
     }
 }
