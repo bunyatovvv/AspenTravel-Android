@@ -92,6 +92,9 @@ dependencies {
     //Google Maps
     implementation("com.google.android.gms:play-services-maps:19.0.0")
 
+    //Swipe Refresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+
 
 
 }
