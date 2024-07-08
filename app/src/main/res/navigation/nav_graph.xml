@@ -7,14 +7,16 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_locationDetailFragment"
             app:destination="@id/locationDetailFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
-            app:popExitAnim="@anim/to_right"/>
+            app:popExitAnim="@anim/to_right"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/homeFragment"/>
         <action
             android:id="@+id/action_homeFragment_to_allLocationsFragment"
             app:destination="@id/allLocationsFragment"
@@ -34,7 +36,8 @@
     <fragment
         android:id="@+id/exploreFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.explore.ExploreFragment"
-        android:label="ExploreFragment" />
+        android:label="ExploreFragment"
+        app:popUpToInclusive="true"/>
     <fragment
         android:id="@+id/locationDetailFragment"
         android:name="com.behmennnn.aspentravel.presentation.fragments.location_detail.LocationDetailFragment"
