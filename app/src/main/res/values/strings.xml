@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AspenTravel</string>
     <string name="maps_api_key">AIzaSyDlHyTNNLkg3K4KzeVqnAxSRCbeEcVzOag</string>
+    <string name="welcome_travel_planner">Welcome to travel planner of Aspen! Please select the country where you want to visit and your budget. Please don`t forget that the flight prices are not included!</string>
 
     <string-array name="countries">
         <item>Argentina</item>
